@@ -1,0 +1,31 @@
+:root{
+    --color-primary: #ffffff;
+    --color-secondary: #ffeb39;
+    --color-gray: #4b4c50;
+    --color-dark-gray: #737373;
+    --color-black: #000000;
+    --color-light-gray: #272830;
+    --color-dark-blue: #1e2830;
+}
+
+
+
+.block{
+    width: 400px;
+}
+.user-img{
+    width: 150px;
+    height: 150px;
+    margin: 24px;
+}
+#navbarDropdown{
+    text-transform: capitalize;
+}
+
+.custom-button-style{
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-black);
+}
+
+

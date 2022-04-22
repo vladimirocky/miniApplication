@@ -24,6 +24,7 @@ function render(list) {
 
     usersAges.textContent = calculateAgesSum(list)
 
+    const fragment = document.createDocumentFragment()
     for(let user of list){
         const block = document.createElement('div')
         // block.classList.add('block')
@@ -49,8 +50,10 @@ function render(list) {
             window.alert(`First Name: ${user.name.first}; Address: ${user.location.city}, ${user.location.street.name}`)
         })
 
-        blocks.appendChild(block)
+        fragment.appendChild(block)
     }
+
+    blocks.appendChild(fragment)
 
 }
 

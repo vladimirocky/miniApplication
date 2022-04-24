@@ -57,25 +57,22 @@ function render(list) {
 
 }
 
-const selects = document.querySelectorAll('.navbar-menu__item')
+const dropdown = document.querySelector('.dropdown-menu')
+dropdown.addEventListener('click',(e)=>{
+    const gender = e.target.dataset.type
+    const child = [...dropdown.children]
+    child.forEach(el=> el.firstChild.classList.remove('active'))
+    e.target.classList.add('active')
 
-selects.forEach((select)=> {
-    select.addEventListener('click',(e)=>{
-        const gender = e.target.dataset.type
+    const dropdownTitle = document.getElementById('navbarDropdown')
 
-        selects.forEach(el=> el.firstChild.classList.remove('active'))
-        e.target.classList.add('active')
+    if(gender !== 'all'){
+        dropdownTitle.textContent = gender
+    } else{
+        dropdownTitle.textContent = 'Filter'
+    }
 
-        const dropdownTitle = document.getElementById('navbarDropdown')
-
-        if(gender !== 'all'){
-            dropdownTitle.textContent = gender
-        } else{
-            dropdownTitle.textContent = 'Filter'
-        }
-
-        filter(gender)
-    })
+    filter(gender)
 })
 
 function filter(gender) {

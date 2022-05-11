@@ -4,13 +4,18 @@ window.onload = () => {
 
 let users = []
 
-async function getData(){
+async function getData(usersCount){
+
 
     await axios.get('https://randomuser.me/api/?results=200').then((response)=>{
         users = response.data.results
     })
-
-    render(users)
+    let inpCount = (document.querySelector('.number-request').value)
+    await axios.get(`https://randomuser.me/api/?results= ${inpCount}`).then((response)=> {
+        users = response.data.results
+        
+        render(users,usersCount)
+    })
 }
 
 function render(list) {
@@ -47,7 +52,8 @@ function render(list) {
         block.innerHTML = html
 
         block.addEventListener('click', ()=>{
-            window.alert(`First Name: ${user.name.first}; Address: ${user.location.city}, ${user.location.street.name}`)
+            // window.alert(`First Name: ${user.name.first}; Address: ${user.location.city}, ${user.location.street.name}`)
+            swal(`First Name: ${user.name.first}; Address: ${user.location.city}, ${user.location.street.name}`);
         })
 
         fragment.appendChild(block)

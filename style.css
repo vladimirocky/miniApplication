@@ -7,7 +7,12 @@
     --color-light-gray: #272830;
     --color-dark-blue: #1e2830;
 }
-
+.btn{
+    color: #ffeb39;
+}
+.btn:hover{
+    color: aquamarine;
+}
 
 
 .block{

@@ -4,9 +4,9 @@ window.onload = () => {
 
 let users = []
 
-async function getData(){
+async function getData(usersCount=200){
 
-    await axios.get('https://randomuser.me/api/?results=200').then((response)=>{
+    await axios.get(`https://randomuser.me/api/?results=${usersCount}`).then((response)=>{
         users = response.data.results
     })
 
@@ -14,9 +14,12 @@ async function getData(){
 }
 
 function render(list) {
+    console.log(list);
     const blocks = document.querySelector('.blocks')
     const userCount = document.querySelector('.user-count')
     const usersAges = document.querySelector('.users-age')
+    const modalTitle = document.querySelector('.modal-title');
+    const modalBody = document.querySelector('.modal-body')
 
     blocks.innerHTML = ''
 
@@ -34,7 +37,8 @@ function render(list) {
         block.className = 'block shadow rounded text-center'
 
 
-        const html = `<img class="rounded user-img" src="${user.picture.large}" alt="">
+        const html = `<div data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img class="rounded user-img" src="${user.picture.large}" alt="">
                 <p class="user-name fs-4">${user.name.title + ' ' + user.name.first + ' ' + user.name.last}</p>
                 <p class="user-email">
                     <i class="bi bi-envelope-fill"></i>
@@ -43,13 +47,20 @@ function render(list) {
                 <p class="user-age">
                     <span>Age: </span>
                     <span>${user.dob.age}</span>
-                </p>`
+                </p>
+                </div>`
         block.innerHTML = html
 
-        block.addEventListener('click', ()=>{
-            window.alert(`First Name: ${user.name.first}; Address: ${user.location.city}, ${user.location.street.name}`)
+        block.addEventListener('click', () => {
+            modalTitle.innerHTML = `<p class="user-name fs-4">${user.name.title + ' ' + user.name.first + ' ' + user.name.last}</p>`
+            modalBody.innerHTML = `
+            <p>${'phone:  ' + user.phone}</p>
+            <p>${'gender: ' + user.gender}</p>
+            <p>${'from: ' + user.location.country + ', ' + user.location.city}</p>
+            <p>${'username: ' + user.login.username}</p>
+            <p>${'registered: ' + user.registered.date.slice(0,10)}</p>
+            `
         })
-
         fragment.appendChild(block)
     }
 
@@ -95,7 +106,7 @@ function find(email) {
         return user.email === email
     }) || users
 
-    render([user] )
+    render([user])
 }
 
 function calculateAgesSum(users) {
@@ -104,3 +115,10 @@ function calculateAgesSum(users) {
     },0)
 }
 
+const btn = document.querySelector('.btn-submit');
+btn.addEventListener('click', () => chooseUsersCount());
+function chooseUsersCount() {
+    console.log('xxx');
+    const usersCountValue = document.querySelector('.users-count').value;
+    getData(usersCountValue);
+}

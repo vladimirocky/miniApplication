@@ -17,7 +17,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
                             <li class="nav-item dropdown ">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Filter
@@ -39,6 +39,10 @@
                                     <span class="users-age"></span></div>
                             </li>
                         </ul>
+                        <div class="container-fluid items-count d-flex">
+                              <input class="form-control users-count me-1 p-2" type="search" placeholder="users count" aria-label="Search">
+                              <button class="btn btn-submit btn-outline-success" type="submit">Submit</button>
+                          </div>
                         <form name="search" class="d-flex">
                             <input name="input" class="form-control me-2" type="search" placeholder="Search by email" aria-label="Search" required>
                             <button class="btn btn-outline-success custom-button-style" type="submit">Search</button>
@@ -46,6 +50,23 @@
                     </div>
                 </div>
             </nav>
+        </div>  
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
         </div>
         <div class="blocks d-flex flex-wrap gap-4 mt-4">
             <div class="placeholder-glow block shadow rounded text-center " aria-hidden="true">

@@ -3,10 +3,11 @@ window.onload = () => {
 }
 
 let users = []
-
+        
 async function getData(){
-
-    await axios.get('https://randomuser.me/api/?results=200').then((response)=>{
+    let usersCount = document.getElementById('usersCount').value;
+    let url = `https://randomuser.me/api/?results= + ${usersCount}`;
+    await axios.get(url).then((response)=>{
         users = response.data.results
     })
 
@@ -45,13 +46,17 @@ function render(list) {
                     <span>${user.dob.age}</span>
                 </p>`
         block.innerHTML = html
-
-        block.addEventListener('click', ()=>{
-            window.alert(`First Name: ${user.name.first}; Address: ${user.location.city}, ${user.location.street.name}`)
+                 
+        block.addEventListener('click', ()=>{     
+        //window.alert(`First Name: ${user.name.first}; Address: ${user.location.city}, ${user.location.street.name}`)
+        //fragment.appendChild(block)
+        let myModal = new bootstrap.Modal(document.getElementById('modal'), )
+       
+            myModal.show();
+            myModal.hide();
+        
         })
-
-        fragment.appendChild(block)
-    }
+    
 
     blocks.appendChild(fragment)
 
@@ -103,4 +108,4 @@ function calculateAgesSum(users) {
         return acc + current.dob.age
     },0)
 }
-
+}

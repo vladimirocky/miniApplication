@@ -8,7 +8,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container">
         <div class="header">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
@@ -40,13 +59,18 @@
                             </li>
                         </ul>
                         <form name="search" class="d-flex">
-                            <input name="input" class="form-control me-2" type="search" placeholder="Search by email" aria-label="Search" required>
+                            <input name="input" class="form-control me-1" type="search" placeholder="Search by email" aria-label="Search" required>
                             <button class="btn btn-outline-success custom-button-style" type="submit">Search</button>
+                        </form>
+                        <form name="usersCount" class="d-flex">
+                            <input name="count" class="form-control me-1 ms-4" type="search" placeholder="Number of users" aria-label="Search" required>
+                            <button class="btn btn-outline-danger custom-button-style" type="submit">Enter</button>
                         </form>
                     </div>
                 </div>
             </nav>
         </div>
+        
         <div class="blocks d-flex flex-wrap gap-4 mt-4">
             <div class="placeholder-glow block shadow rounded text-center " aria-hidden="true">
                 <div class="rounded user-img placeholder" >

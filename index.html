@@ -38,11 +38,22 @@
                                     <span>Age sum: </span>
                                     <span class="users-age"></span></div>
                             </li>
+                            <li class="nav-item dropdown">
+                                <div class="nav-link d-flex align-items-center">
+                                    <input class="number-requests" value="200">Number of requests:</input>
+                                    <button class="but" onclick="getData()">Button</button>
+                                </div>
+                                    
+                            </li>
                         </ul>
                         <form name="search" class="d-flex">
                             <input name="input" class="form-control me-2" type="search" placeholder="Search by email" aria-label="Search" required>
                             <button class="btn btn-outline-success custom-button-style" type="submit">Search</button>
                         </form>
+                        <!-- <form name="search" class="d-flex ">
+                            <input class="number-requests">Number of requests:</input>
+                            <button class="but" onclick="getData()">Button</button>
+                        </form> -->
                     </div>
                 </div>
             </nav>
@@ -142,6 +153,8 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="example.json"></script>
     <script src="script.js"></script>
 </body>
 </html>

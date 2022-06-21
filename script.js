@@ -5,7 +5,7 @@ window.onload = () => {
 let users = []
         
 async function getData(){
-    let usersCount = document.getElementById('usersCount').value;
+    let usersCount = document.getElementById('usersCount');
     let url = `https://randomuser.me/api/?results= + ${usersCount}`;
     await axios.get(url).then((response)=>{
         users = response.data.results
